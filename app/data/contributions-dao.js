@@ -55,7 +55,7 @@ function ContributionsDAO(db) {
 
     this.getByUserId = (userId, callback) => {
         contributionsDB.findOne({
-                userId: userId
+                userId: { $eq: userId }
             },
             (err, contributions) => {
                 if (err) return callback(err, null);
