@@ -155,3 +155,31 @@ MongoClient.connect(db, (err, db) => {
     */
 
 });
+function formatUserData(user) {
+    let result = "";
+
+    if (user) {
+        if (user.name) {
+            result = result + user.name;
+        } else {
+            result = result + "unknown";
+        }
+
+        if (user.email) {
+            result = result + " - " + user.email;
+        } else {
+            result = result + " - no-email";
+        }
+
+        if (user.role) {
+            result = result + " - " + user.role;
+        } else {
+            result = result + " - no-role";
+        }
+    } else {
+        result = "no user";
+    }
+
+    return result;
+}
+console.log(formatUserData(null));
